@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "extends": "airbnb",
+  "plugins": ["react"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+      "es6": true,
+      "browser": true
+  },
+  "rules": {
+    "strict": 0,
+    "max-len":"off",
+    "jsx-a11y/label-has-for":"off",
+    "arrow-body-style": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off"
+  }
+}
