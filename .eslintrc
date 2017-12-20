@@ -1,7 +1,7 @@
 {
   "root": true,
-  "extends": "airbnb",
-  "plugins": ["react"],
+  "extends": ["airbnb","react-app"],
+  "plugins": ["react","eslint-plugin-jest"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -11,14 +11,22 @@
   },
   "env": {
       "es6": true,
-      "browser": true
+      "browser": true,
+      "jest/globals": true
   },
   "rules": {
     "strict": 0,
     "max-len":"off",
     "jsx-a11y/label-has-for":"off",
     "arrow-body-style": "off",
+
     "react/forbid-prop-types": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   }
 }
