@@ -20,7 +20,8 @@ chalk(v1.1.3)
 
 css-loader(v0.28.7)
 
-dotenv(v4.0.0)
+## dotenv(_v4.0.0_)
+Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
 
 eslint(v4.10.0)
 
@@ -44,7 +45,8 @@ extract-text-webpack-plugin(v3.0.2)
 
 file-loader(v1.1.5)
 
-fs-extra(v3.0.1)
+## fs-extra(_v3.0.1_)
+fs-extra adds file system methods that aren't included in the native fs module and adds promise support to the fs methods. It should be a drop in replacement for fs.
 
 html-webpack-plugin(v2.29.0)
 
@@ -88,4 +90,4 @@ webpack-dev-server(v2.9.4)
 
 webpack-manifest-plugin(v1.3.2)
 
-whatwg-fetch(v2.0.3
+whatwg-fetch(_v2.0.3_)

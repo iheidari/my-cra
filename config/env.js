@@ -2,20 +2,13 @@
 
 const fs = require('fs');
 const path = require('path');
+const dotenv = require('dotenv');
 const paths = require('./paths');
 
-// Make sure that including paths.js after env.js will read .env variables.
-delete require.cache[require.resolve('./paths')];
-
 const NODE_ENV = process.env.NODE_ENV;
-if (!NODE_ENV) {
-  throw new Error(
-    'The NODE_ENV environment variable is required but was not specified.'
-  );
-}
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
-var dotenvFiles = [
+const dotenvFiles = [
   `${paths.dotenv}.${NODE_ENV}.local`,
   `${paths.dotenv}.${NODE_ENV}`,
   // Don't include `.env.local` for `test` environment
@@ -25,13 +18,21 @@ var dotenvFiles = [
   paths.dotenv,
 ].filter(Boolean);
 
+
+// Make sure that including paths.js after env.js will read .env variables.
+delete require.cache[require.resolve('./paths')];
+
+if (!NODE_ENV) {
+  throw new Error('The NODE_ENV environment variable is required but was not specified.');
+}
+
 // Load environment variables from .env* files. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.
 // https://github.com/motdotla/dotenv
-dotenvFiles.forEach(dotenvFile => {
+dotenvFiles.forEach((dotenvFile) => {
   if (fs.existsSync(dotenvFile)) {
-    require('dotenv').config({
+    dotenv.config({
       path: dotenvFile,
     });
   }
@@ -66,8 +67,8 @@ function getClientEnvironment(publicUrl) {
         return env;
       },
       {
-        // Useful for determining whether we’re running in production mode.
-        // Most importantly, it switches React into the correct mode.
+      // Useful for determining whether we’re running in production mode.
+      // Most importantly, it switches React into the correct mode.
         NODE_ENV: process.env.NODE_ENV || 'development',
         // Useful for resolving the correct path to static assets in `public`.
         // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
